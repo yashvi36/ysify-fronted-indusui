@@ -9905,7 +9905,6 @@ body {
     line-height: 1.8;
     font-weight: 300;
     color: gray;
-    background: url(../images/bg_4.jpg) no-repeat fixed;
     background-size: cover;
 }
 
@@ -10676,6 +10675,26 @@ h5,
     }
 }
 
+.map-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    border: 0;
+}
+
+
+/* 🔥 MOBILE FIX */
+
+@media (max-width: 768px) {
+    .map-wrapper iframe {
+        pointer-events: none;
+        height: 300px;
+    }
+}
+
 .ftco-intro .wrap .book h3 {
     text-transform: uppercase;
 }
@@ -10912,7 +10931,6 @@ h5,
 
 .pricing-entry .text h3 span {
     background: #151111;
-    background: url(../images/bg_4.jpg) no-repeat fixed;
     padding-right: 20px;
 }
 
@@ -10921,7 +10939,6 @@ h5,
     color: #c49b63;
     text-align: right;
     background: #151111;
-    background: url(../images/bg_4.jpg) no-repeat fixed;
     font-size: 16px;
 }
 
