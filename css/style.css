@@ -227,6 +227,34 @@
             color: black;
             margin-bottom: 0;
         }
+        /* FIX: Allow page scroll after slider on mobile */
+        
+        @media (max-width: 768px) {
+            .home-slider,
+            .home-slider .slider-item,
+            .home-slider .owl-stage-outer,
+            .home-slider .owl-stage {
+                height: auto !important;
+                min-height: 100vh;
+                overflow: visible !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-features {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .owl-carousel {
+                touch-action: pan-y !important;
+            }
+        }
         
         .trust-section .trust-card {
             background: rgba(255, 255, 255, 0.95);
