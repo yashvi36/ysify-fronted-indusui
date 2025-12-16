@@ -24,7 +24,7 @@
 
      var fullHeight = function() {
 
-         if (window.innerWidth > 768) {
+         if ($(window).width() > 768) {
              $('.js-fullheight').css('height', $(window).height());
              $(window).resize(function() {
                  $('.js-fullheight').css('height', $(window).height());
@@ -36,6 +36,20 @@
      };
      fullHeight();
 
+     if ($(window).width() < 768) {
+         $.stellar('destroy');
+     }
+
+     if ($(window).width() > 768) {
+         $(window).stellar({
+             responsive: true,
+             parallaxBackgrounds: true,
+             parallaxElements: true,
+             horizontalScrolling: false
+         });
+
+         $.Scrollax();
+     }
 
      // loader
      var loader = function() {
