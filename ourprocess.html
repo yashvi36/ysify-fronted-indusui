@@ -27,6 +27,64 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+<style>
+.page-hero {
+  width: 100%;
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero-content .breadcrumbs {
+  font-size: 16px;
+}
+
+.hero-content a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.hero-content a:hover {
+  opacity: 1;
+}
+
+/* Mobile fix */
+@media (max-width:768px) {
+  .page-hero {
+    min-height: 40vh;
+    padding: 80px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+}
+
+</style>
   </head>
   <body>
   	 <nav class="navbar navbar-expand-lg navbar-white ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar">
@@ -38,7 +96,7 @@
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
       aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span> page
+      <span class="oi oi-menu"></span> 
     </button>
 
     <div class="collapse navbar-collapse" id="ftco-nav">
@@ -85,22 +143,19 @@
 </nav>
     <!-- END nav -->
 
-    <section class="home-slider owl-carousel">
+   <section class="page-hero" style="background-image:url('images/image5.png');">
+  <div class="hero-overlay"></div>
 
-      <div class="slider-item" style="background-image: url(images/image5.png);" data-stellar-background-ratio="0.9">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center">
+  <div class="hero-content">
+    <h1>Our Process</h1>
+    <p class="breadcrumbs">
+      <a href="index.html">Home</a> /
+      <a href="projects.html">Product</a> /
+      <span>Our Process</span>
+    </p>
+  </div>
+</section>
 
-            <div class="col-md-7 col-sm-12 text-center ftco-animate">
-            	<h1 class="mb-3 mt-5 bread">Our Process</h1>
-	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span href="projects.html">Product</span><span>Our Process</span></p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
 
 <section class="ftco-section bg-light">
   <div class="container">
