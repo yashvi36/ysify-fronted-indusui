@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # YSIFY – Industrial Frontend Website [indusui]
 
 A modern, responsive industrial website built using HTML, CSS, Bootstrap 4, and JavaScript.  
@@ -110,3 +111,6 @@ This project is provided for **demo and portfolio purposes only**.
 Unauthorized copying, redistribution, or commercial use without permission is not allowed.
 
 © 2025 YSIFY. All rights reserved.
+=======
+# ysify-fronted-indusui
+>>>>>>> 4063da9c5ec3acf8c295609f125e84d2f8739201
