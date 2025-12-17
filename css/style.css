@@ -84,6 +84,93 @@
             color: #ffffff;
         }
         
+        .simple-slider {
+            position: relative;
+        }
+        
+        .slide {
+            display: none;
+            min-height: 80vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        .slide::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: auto;
+            padding: 120px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .slide-content span {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .slide-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .slide-content p {
+            font-size: 17px;
+            opacity: 0.9;
+        }
+        
+        .btns {
+            margin-top: 30px;
+        }
+        
+        .btn-primary,
+        .btn-outline {
+            padding: 12px 26px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 5px;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #0d6efd;
+            color: #fff;
+        }
+        
+        .btn-outline {
+            border: 1px solid #fff;
+            color: #fff;
+        }
+        /* MOBILE FIX */
+        
+        @media (max-width:768px) {
+            .slide {
+                min-height: auto;
+            }
+            .slide-content {
+                padding: 80px 15px;
+            }
+            .slide-content h1 {
+                font-size: 28px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .one-half,
             .overlap {}

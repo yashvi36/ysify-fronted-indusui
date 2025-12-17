@@ -3,13 +3,13 @@ AOS.init({
     easing: 'slide'
 });
 
-(function($) {
+(function ($) {
     "use strict";
 
     /* ===============================
        FULL HEIGHT (DESKTOP ONLY)
     =============================== */
-    var fullHeight = function() {
+    var fullHeight = function () {
         if ($(window).width() > 768) {
             $('.js-fullheight').css('height', $(window).height());
         } else {
@@ -18,11 +18,21 @@ AOS.init({
     };
     fullHeight();
 
-    $(window).on('resize', function() {
+    $(window).on('resize', function () {
         if ($(window).width() > 768) {
             $('.js-fullheight').css('height', $(window).height());
         }
     });
+
+
+    let slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    setInterval(() => {
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+    }, 5000);
 
     /* ===============================
        PARALLAX (DESKTOP ONLY)
@@ -41,8 +51,8 @@ AOS.init({
     /* ===============================
        LOADER
     =============================== */
-    var loader = function() {
-        setTimeout(function() {
+    var loader = function () {
+        setTimeout(function () {
             if ($('#ftco-loader').length > 0) {
                 $('#ftco-loader').removeClass('show');
             }
@@ -53,7 +63,7 @@ AOS.init({
     /* ===============================
        CAROUSELS
     =============================== */
-    var carousel = function() {
+    var carousel = function () {
 
         $('.home-slider').owlCarousel({
             loop: true,
@@ -102,12 +112,12 @@ AOS.init({
     =============================== */
     if ($(window).width() > 991) {
         $('nav .dropdown').hover(
-            function() {
+            function () {
                 $(this).addClass('show');
                 $(this).find('> a').attr('aria-expanded', true);
                 $(this).find('.dropdown-menu').addClass('show');
             },
-            function() {
+            function () {
                 $(this).removeClass('show');
                 $(this).find('> a').attr('aria-expanded', false);
                 $(this).find('.dropdown-menu').removeClass('show');
@@ -118,8 +128,8 @@ AOS.init({
     /* ===============================
        NAVBAR SCROLL EFFECT
     =============================== */
-    var scrollWindow = function() {
-        $(window).scroll(function() {
+    var scrollWindow = function () {
+        $(window).scroll(function () {
             var st = $(this).scrollTop(),
                 navbar = $('.ftco_navbar');
 
@@ -141,10 +151,10 @@ AOS.init({
     /* ===============================
        COUNTER
     =============================== */
-    var counter = function() {
-        $('#section-counter').waypoint(function(direction) {
+    var counter = function () {
+        $('#section-counter').waypoint(function (direction) {
             if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
-                $('.number').each(function() {
+                $('.number').each(function () {
                     var $this = $(this),
                         num = $this.data('number');
                     $this.animateNumber({ number: num }, 7000);
@@ -157,8 +167,8 @@ AOS.init({
     /* ===============================
        CONTENT ANIMATION
     =============================== */
-    var contentWayPoint = function() {
-        $('.ftco-animate').waypoint(function(direction) {
+    var contentWayPoint = function () {
+        $('.ftco-animate').waypoint(function (direction) {
             if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
                 $(this.element).addClass('fadeInUp ftco-animated');
             }
@@ -169,7 +179,7 @@ AOS.init({
     /* ===============================
        ONE PAGE NAV (SAFE)
     =============================== */
-    $(".smoothscroll[href^='#']").on('click', function(e) {
+    $(".smoothscroll[href^='#']").on('click', function (e) {
         e.preventDefault();
         var target = $(this.hash);
         if (target.length) {
