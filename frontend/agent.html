@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDUSUI AI Agent</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background:#f4f6f9; }
+        #chatBox { height:400px; overflow-y:scroll; background:white; padding:15px; border:1px solid #ddd; }
+        .user { color:blue; margin:10px 0; }
+        .bot { color:green; margin:10px 0; }
+    </style>
+</head>
+<body>
+
+<h2>INDUSUI AI Business Agent</h2>
+
+<div id="chatBox"></div>
+
+<input type="text" id="message" placeholder="Ask something..." style="width:80%; padding:10px;">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+async function sendMessage() {
+    const msg = document.getElementById("message").value;
+    const chatBox = document.getElementById("chatBox");
+
+    chatBox.innerHTML += `<div class="user"><b>You:</b> ${msg}</div>`;
+
+    const res = await fetch("http://127.0.0.1:8000/agent-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: msg })
+    });
+
+    const data = await res.json();
+
+    chatBox.innerHTML += `<div class="bot"><b>Agent:</b> ${data.reply}</div>`;
+
+    document.getElementById("message").value = "";
+}
+</script>
+
+</body>
+</html>

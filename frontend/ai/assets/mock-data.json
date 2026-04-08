@@ -1,0 +1,16 @@
+[{
+        "company": "TechNova",
+        "industry": "SaaS",
+        "description": "B2B SaaS platform for fintech automation"
+    },
+    {
+        "company": "RetailX",
+        "industry": "E-commerce",
+        "description": "Online fashion brand targeting Gen Z"
+    },
+    {
+        "company": "CloudSync",
+        "industry": "SaaS",
+        "description": "Cloud data integration platform"
+    }
+]

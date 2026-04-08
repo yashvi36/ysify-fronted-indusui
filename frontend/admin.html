@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INDUSUI Admin Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body { font-family: Arial; padding: 40px; background: #f4f6f9; }
+        .card { display:inline-block; padding:20px; margin:10px; background:white; border-radius:8px; width:200px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        table { width:100%; margin-top:30px; border-collapse: collapse; background:white; }
+        th, td { padding:12px; border:1px solid #ddd; text-align:left; }
+        th { background:#333; color:white; }
+        .Hot { background:#ffdddd; }
+        .Warm { background:#fff4cc; }
+        .Cold { background:#e6f2ff; }
+        .logout { float:right; padding:8px 15px; background:#333; color:white; border:none; cursor:pointer; }
+    </style>
+</head>
+<body>
+
+<script>
+    // 🔐 LOGIN PROTECTION
+    if (!sessionStorage.getItem("loggedIn")) {
+        window.location.href = "login.html";
+    }
+
+    function logout() {
+        sessionStorage.removeItem("loggedIn");
+        window.location.href = "login.html";
+    }
+</script>
+
+<h1>
+    INDUSUI Lead Dashboard
+    <button class="logout" onclick="logout()">Logout</button>
+</h1>
+
+<div id="stats"></div>
+
+<canvas id="leadChart" width="600" height="250"></canvas>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Score</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="leadTable"></tbody>
+</table>
+
+<script>
+let chartInstance = null;
+
+async function loadStats() {
+    const res = await fetch("http://127.0.0.1:8000/leads/stats");
+    const data = await res.json();
+
+    document.getElementById("stats").innerHTML = `
+        <div class="card">Total<br><b>${data.total_leads}</b></div>
+        <div class="card">Hot<br><b>${data.hot_leads}</b></div>
+        <div class="card">Warm<br><b>${data.warm_leads}</b></div>
+        <div class="card">Cold<br><b>${data.cold_leads}</b></div>
+    `;
+
+    const ctx = document.getElementById('leadChart').getContext('2d');
+
+    if (chartInstance) {
+        chartInstance.destroy();
+    }
+
+    chartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Hot', 'Warm', 'Cold'],
+            datasets: [{
+                label: 'Lead Distribution',
+                data: [data.hot_leads, data.warm_leads, data.cold_leads],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(54, 162, 235, 0.6)'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+}
+
+async function loadLeads() {
+    const res = await fetch("http://127.0.0.1:8000/leads");
+    const leads = await res.json();
+
+    let rows = "";
+
+    leads.forEach(lead => {
+        rows += `
+            <tr class="${lead.lead_status}">
+                <td>${lead.name}</td>
+                <td>${lead.email}</td>
+                <td>${lead.category}</td>
+                <td>${lead.priority}</td>
+                <td>${lead.score}</td>
+                <td>${lead.lead_status}</td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("leadTable").innerHTML = rows;
+}
+
+loadStats();
+loadLeads();
+</script>
+
+</body>
+</html>

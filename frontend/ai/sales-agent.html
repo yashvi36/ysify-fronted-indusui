@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Sales Agent | Indus AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<div class="flex h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-900 text-white flex flex-col">
+        <div class="p-6 text-xl font-bold border-b border-gray-700">
+            Indus AI
+        </div>
+        <nav class="flex-1 p-4 space-y-4">
+            <a href="dashboard.html" class="block hover:text-blue-400">Dashboard</a>
+            <a href="sales-agent.html" class="block text-blue-400 font-semibold">Sales Agent</a>
+            <a href="support-agent.html" class="block hover:text-blue-400">Support Agent</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 overflow-y-auto">
+
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl font-bold">AI Sales & Lead Automation</h1>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Simulate Outreach
+            </button>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="grid grid-cols-4 gap-6 mb-8">
+
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-gray-500 text-sm">Leads Processed</h3>
+                <p class="text-2xl font-bold">120</p>
+            </div>
+
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-gray-500 text-sm">Qualified Leads</h3>
+                <p class="text-2xl font-bold text-green-600">78</p>
+            </div>
+
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-gray-500 text-sm">Emails Generated</h3>
+                <p class="text-2xl font-bold">120</p>
+            </div>
+
+            <div class="bg-white p-6 rounded shadow">
+                <h3 class="text-gray-500 text-sm">Est. Revenue Impact</h3>
+                <p class="text-2xl font-bold text-blue-600">$48,000</p>
+            </div>
+
+        </div>
+
+        <!-- Lead Upload Section -->
+        <div class="bg-white p-6 rounded shadow mb-8">
+            <h2 class="text-lg font-semibold mb-4">Upload Lead Dataset</h2>
+            <input type="file" class="border p-2 rounded w-full">
+        </div>
+
+        <!-- Lead Qualification Table -->
+        <div class="bg-white p-6 rounded shadow mb-8">
+            <h2 class="text-lg font-semibold mb-4">Lead Qualification Results</h2>
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="border-b">
+                        <th class="p-2">Company</th>
+                        <th class="p-2">Industry</th>
+                        <th class="p-2">Score</th>
+                        <th class="p-2">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b">
+                        <td class="p-2">TechNova</td>
+                        <td class="p-2">SaaS</td>
+                        <td class="p-2 text-green-600 font-bold">87</td>
+                        <td class="p-2 text-green-500">Ideal</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td class="p-2">RetailX</td>
+                        <td class="p-2">E-commerce</td>
+                        <td class="p-2 text-yellow-600 font-bold">62</td>
+                        <td class="p-2 text-yellow-500">Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Email Preview -->
+        <div class="bg-white p-6 rounded shadow">
+            <h2 class="text-lg font-semibold mb-4">Generated Outreach Email</h2>
+            <div class="bg-gray-50 p-4 rounded text-sm leading-relaxed">
+                Hi TechNova Team,<br><br>
+                We noticed your SaaS product is scaling rapidly in the fintech space. 
+                Our AI automation system helps SaaS companies increase qualified demo bookings by 35%. 
+                Would you be open to a quick 10-minute call?<br><br>
+                Best,<br>
+                Indus AI Team
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/sales-agent.js"></script>
+
+</body>
+</html>
